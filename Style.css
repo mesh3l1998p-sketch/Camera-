@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100dvh;
+  background-color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* المعاينة الحية للكاميرا والصورة عند التقاطها بملء الشاشة */
+#webcam, #photo-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  object-fit: cover;
+}
+
+/* تطبيق الفلتر على البث المباشر بسرعة عالية من معالج الرسومات GPU */
+#webcam {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom));
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.shutter-container {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  min-height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shutter-button {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 4px solid #ffffff;
+  outline: 4px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 3px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.shutter-button:active {
+  transform: scale(0.88);
+}
+
+.btn-primary {
+  padding: 16px 36px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.btn-primary-action {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
