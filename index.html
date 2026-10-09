@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Camera App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- شاشة البدء -->
+  <div id="start-screen" class="screen">
+    <button id="open-cam-btn" class="btn-primary">OPEN CAMERA</button>
+  </div>
+
+  <!-- شاشة الكاميرا والمعاينة -->
+  <div id="camera-screen" class="screen hidden">
+    <!-- فيديو الكاميرا للمعاينة الحية -->
+    <video id="webcam" autoplay playsinline muted></video>
+
+    <!-- كانفاس مخفية لمعالجة الصورة وحرق الفلتر -->
+    <canvas id="capture-canvas" class="hidden"></canvas>
+
+    <!-- عنصر عرض الصورة النهائية بعد التصوير -->
+    <img id="photo-preview" class="hidden" alt="Captured Photo">
+
+    <!-- واجهة أزرار التحكم -->
+    <div id="controls-overlay" class="overlay">
+      <div class="shutter-container">
+        <button id="shutter-btn" class="shutter-button" aria-label="Take Photo"></button>
+      </div>
+    </div>
+
+    <!-- واجهة بعد التصوير -->
+    <div id="action-overlay" class="overlay hidden">
+      <button id="retake-btn" class="btn-secondary">Retake</button>
+      <button id="save-btn" class="btn-primary-action">Save Photo</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
